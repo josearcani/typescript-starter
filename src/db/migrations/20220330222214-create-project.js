@@ -20,7 +20,7 @@ module.exports = {
       createdAt: {
         type: Sequelize.DataTypes.DATE,
         allowNull: false,
-        field: 'create_at',
+        field: 'created_at',
       },
       updatedAt: {
         type: Sequelize.DataTypes.DATE,

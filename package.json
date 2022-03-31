@@ -10,6 +10,7 @@
     "dev": "nodemon",
     "start": "npm run build && node dist/index.js",
     "migrations:run": "npx sequelize-cli db:migrate",
+    "migrations:seed": "npx sequelize-cli db:seed:all",
     "migrations:down": "npx sequelize-cli db:migrate:undo:all"
   },
   "keywords": [
