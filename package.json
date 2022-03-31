@@ -9,8 +9,8 @@
     "build": "rimraf ./dist && tsc",
     "dev": "nodemon",
     "start": "npm run build && node dist/index.js",
-    "migrations:run": "sequelize-cli db:migrate",
-    "migrations:down": "sequelize-cli db:migrate:undo"
+    "migrations:run": "npx sequelize-cli db:migrate",
+    "migrations:down": "npx sequelize-cli db:migrate:undo:all"
   },
   "keywords": [
     "typescript",
