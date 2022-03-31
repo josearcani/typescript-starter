@@ -1,5 +1,11 @@
-console.log('Hello world');
+import express from 'express';
+const app = express();
+const port = process.env.PORT || 3000;
 
-const age = 120;
+import db from './db/models';
 
-console.log(age);
+db.sequelize.sync().then(() => {
+  app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+  })
+})
