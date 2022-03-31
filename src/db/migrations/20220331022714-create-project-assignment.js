@@ -2,20 +2,26 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('projects', {
-      id: {
+    await queryInterface.createTable('project_assignment', {
+      ProjectId: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
-        autoIncrement: true,
+        field: 'project_id',
+        references: {
+          model: 'projects',
+          key: 'id'
+        }
       },
-      title: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: false
-      },
-      status: {
-        type: Sequelize.DataTypes.STRING,
-        allowNull: false
+      UserId: {
+        type: Sequelize.DataTypes.UUID,
+        allowNull: false,
+        primaryKey: true,
+        field: 'user_id',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       createdAt: {
         type: Sequelize.DataTypes.DATE,
@@ -30,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('projects');
+    await queryInterface.dropTable('project_assignment');
   }
 };

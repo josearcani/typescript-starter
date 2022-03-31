@@ -21,7 +21,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
     static associate(models:any) {
       // define association here
       Project.belongsToMany(models.User, {
-        through: 'ProjectAssignments'
+        through: 'project_assignment'
       })
     }
   }
@@ -42,7 +42,9 @@ module.exports = (sequelize:any, DataTypes:any) => {
     }
   }, {
     sequelize,
+    tableName: 'projects',
     modelName: 'Project',
+    timestamps: true,
   });
   return Project;
 };

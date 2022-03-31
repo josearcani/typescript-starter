@@ -9,7 +9,6 @@ interface UserAttributes {
   password: string;
 }
 
-
 module.exports = (sequelize:any, DataTypes:any) => {
   class User extends Model<UserAttributes> implements UserAttributes {
     /**
@@ -26,7 +25,7 @@ module.exports = (sequelize:any, DataTypes:any) => {
     static associate(models:any) {
       // define association here
       User.belongsToMany(models.Project, {
-        through: 'ProjectAssignments'
+        through: 'project_assignment'
       })
     }
   }
@@ -52,7 +51,9 @@ module.exports = (sequelize:any, DataTypes:any) => {
     }
   }, {
     sequelize,
+    tableName: 'users',
     modelName: 'User',
+    timestamps: true,
   });
   return User;
 };

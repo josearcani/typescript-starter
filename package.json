@@ -8,7 +8,9 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "build": "rimraf ./dist && tsc",
     "dev": "nodemon",
-    "start": "npm run build && node dist/index.js"
+    "start": "npm run build && node dist/index.js",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:down": "sequelize-cli db:migrate:undo"
   },
   "keywords": [
     "typescript",
@@ -33,6 +35,7 @@
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "uuid": "^8.3.2"
   }
 }
