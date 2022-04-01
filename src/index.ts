@@ -9,3 +9,14 @@ db.sequelize.sync().then(() => {
     console.log(`App listening on port ${port}`);
   })
 })
+
+
+app.get('/', async (req, res) => {
+  try {
+    const users = await db.User.findAll();
+    console.log(users);
+    res.json({users})
+  } catch (error) {
+    console.log(error);
+  }
+})

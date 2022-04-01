@@ -10,11 +10,6 @@ interface ProjectAttributes {
 
 module.exports = (sequelize:any, DataTypes:any) => {
   class Project extends Model<ProjectAttributes> implements ProjectAttributes {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     id!: number;
     title!: string;
     status!: string;
@@ -45,6 +40,8 @@ module.exports = (sequelize:any, DataTypes:any) => {
     tableName: 'projects',
     modelName: 'Project',
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return Project;
 };

@@ -11,17 +11,10 @@ interface UserAttributes {
 
 module.exports = (sequelize:any, DataTypes:any) => {
   class User extends Model<UserAttributes> implements UserAttributes {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-
     id!:string;
     name!:string; // not nullable and also string
     email!: string;
     password!: string;
-
     static associate(models:any) {
       // define association here
       User.belongsToMany(models.Project, {
@@ -54,6 +47,8 @@ module.exports = (sequelize:any, DataTypes:any) => {
     tableName: 'users',
     modelName: 'User',
     timestamps: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return User;
 };
