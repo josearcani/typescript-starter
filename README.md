@@ -11,7 +11,7 @@ pg-hstore
 sequelize
 sequelize-cli
 
-````
+```
 npx sequelize-cli migration:generate --name User // creates a migration file
 npx sequelize-cli model:generate --name Client --attributes name:string // creates model & migration
 ```
